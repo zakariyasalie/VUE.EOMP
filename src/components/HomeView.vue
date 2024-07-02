@@ -7,14 +7,14 @@
       <h1>Welcome to My Portfolio</h1>
       <img src="https://zakariyasalie.github.io/allimages/images/zak1.jpg" alt="Professional Photo" loading="lazy" class="profile-photo">
     </div>
+    <div class="container">
+      <div class="row-6">
+        <!-- Placeholder content -->
+        <h5>I am an aspiring software developer</h5>
+      </div>
+    </div>
   </section>
 
-  <div class="container">
-    <div class="row-6">
-      <!-- Placeholder content -->
-      <p>This is where your portfolio content goes.</p>
-    </div>
-  </div>
 </template>
 
 <script>
@@ -23,12 +23,14 @@ export default {
 }
 </script>
 
+
 <style scoped>
 .home {
+  margin-top: auto;
   text-align: center;
   padding: 5rem;
-  height: 80rem;
-  max-height: 80rem;
+  height: 100rem;
+  max-height: 100rem;
   color: white; /* Ensure text is readable on the background image */
   overflow: hidden; /* Ensure blurred content doesn't overflow */
 }
@@ -56,11 +58,38 @@ export default {
   z-index: 1; /* Ensure content is above the background */
 }
 
+.home h1, .home h5 {
+  margin: 0;
+  padding: 0.5rem 0;
+  transition: transform 0.3s ease, color 0.3s ease;
+}
+
+.home h1 {
+  font-size: 3rem;
+}
+
+.home h5 {
+  font-size: 1.5rem;
+  color: #ecf0f1; /* Light text color */
+}
+
 .home .profile-photo {
   width: 150px;
   height: auto;
   border-radius: 50%;
   margin-top: 2rem;
+  transition: transform 0.6s ease, box-shadow 0.6s ease, filter 0.6s ease;
+}
+
+.home .profile-photo:hover {
+  transform: scale(1.2) rotate(10deg);
+  box-shadow: 0 8px 16px rgba(0, 0, 0, 0.3);
+  filter: brightness(1.1) contrast(1.2);
+}
+
+.home h1:hover, .home h5:hover {
+  color: #1abc9c; /* Light green color on hover */
+  transform: scale(1.1);
 }
 
 .container {
@@ -69,7 +98,6 @@ export default {
   padding: 2rem;
 }
 
-/* Ensure your portfolio image scales properly */
 .portfolio-img {
   width: 100%;
   height: auto;

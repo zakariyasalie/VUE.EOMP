@@ -17,12 +17,12 @@
 <script>
 import Navbar from '@/components/Navbar'
 import Footer from './components/Footer.vue'
-import Home from './views/HomeView.vue'
-import About from './views/AboutView.vue'
-import Resume from './views/ResumeView.vue'
-import Projects from './views/ProjectsView.vue'
-import Testimonials from './views/TestimonialsView.vue'
-import Contact from './views/ContactView.vue'
+import Home from './components/HomeView.vue'
+import About from './components/AboutView.vue'
+import Resume from './components/ResumeView.vue'
+import Projects from './components/ProjectsView.vue'
+import Testimonials from './components/TestimonialsView.vue'
+import Contact from './components/ContactView.vue'
 
 export default {
   name: 'App',
