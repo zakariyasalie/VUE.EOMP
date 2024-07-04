@@ -4,17 +4,19 @@
       <img src="https://zakariyasalie.github.io/allimages/images/zak1.jpg" alt="Background" loading="lazy" class="background-image">
     </div>
     <div class="content">
-      <h1>Welcome to My Portfolio</h1>
-      <img src="https://zakariyasalie.github.io/allimages/images/zak1.jpg" alt="Professional Photo" loading="lazy" class="profile-photo">
-    </div>
-    <div class="container">
-      <div class="row-6">
-        <!-- Placeholder content -->
-        <h5>I am an aspiring software developer</h5>
+      <div class="container">
+        <div class="row align-items-center justify-content-center text-center">
+          <div class="col-12">
+            <h1>Welcome to My Portfolio</h1>
+            <img src="https://zakariyasalie.github.io/allimages/images/zak1.jpg" alt="Professional Photo" loading="lazy" class="profile-photo">
+            <div class="row-6">
+              <h5>I am an aspiring software developer</h5>
+            </div>
+          </div>
+        </div>
       </div>
     </div>
   </section>
-
 </template>
 
 <script>
@@ -23,16 +25,16 @@ export default {
 }
 </script>
 
-
 <style scoped>
 .home {
-  margin-top: auto;
+  position: relative; /* Ensure relative positioning for content */
   text-align: center;
-  padding: 5rem;
-  height: 100rem;
-  max-height: 100rem;
-  color: white; /* Ensure text is readable on the background image */
+  color: white; /* Text color on background image */
   overflow: hidden; /* Ensure blurred content doesn't overflow */
+  height: 100vh;
+  display: flex; /* Use Flexbox for centering */
+  align-items: center; /* Center vertically */
+  justify-content: center; /* Center horizontally */
 }
 
 .background-container {
@@ -49,13 +51,14 @@ export default {
   width: 100%;
   height: 100%;
   object-fit: cover;
-  filter: blur(8px);
+  filter: blur(8px); /* Optional: Apply blur effect */
   -webkit-filter: blur(8px); /* For Safari */
 }
 
 .content {
   position: relative;
   z-index: 1; /* Ensure content is above the background */
+  padding: 5rem 0; /* Adjust padding as needed */
 }
 
 .home h1, .home h5 {
@@ -65,19 +68,20 @@ export default {
 }
 
 .home h1 {
-  font-size: 3rem;
+  font-size: 3rem; /* Example: Adjust font size */
 }
 
 .home h5 {
   font-size: 1.5rem;
   color: #ecf0f1; /* Light text color */
+  margin-top: 10px;
 }
 
 .home .profile-photo {
-  width: 150px;
+  width: 150px; /* Example: Adjust size */
   height: auto;
   border-radius: 50%;
-  margin-top: 2rem;
+  margin-top: 2rem; /* Example: Adjust margin */
   transition: transform 0.6s ease, box-shadow 0.6s ease, filter 0.6s ease;
 }
 
@@ -90,17 +94,5 @@ export default {
 .home h1:hover, .home h5:hover {
   color: #1abc9c; /* Light green color on hover */
   transform: scale(1.1);
-}
-
-.container {
-  max-width: 1200px;
-  margin: 0 auto;
-  padding: 2rem;
-}
-
-.portfolio-img {
-  width: 100%;
-  height: auto;
-  max-width: 100%;
 }
 </style>
