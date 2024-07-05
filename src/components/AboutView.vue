@@ -23,7 +23,7 @@
         </div>
       </div>
       <div class="row mt-5">
-        <div class="col-md-4">
+        <div class="col-md-4 col-sm-6 mb-4">
           <div class="content-box">
             <p class="about-me-content">Full Name:</p>
             <p class="about-me-content">Address:</p>
@@ -32,7 +32,7 @@
             <p class="about-me-content">Email:</p>
           </div>
         </div>
-        <div class="col-md-4">
+        <div class="col-md-4 col-sm-6 mb-4">
           <div class="content-box">
             <p class="about-me-content">Zakariya Salie</p>
             <p class="about-me-content">Ottery, Cape Town, Western Cape, South Africa</p>
@@ -41,7 +41,7 @@
             <p class="about-me-content">zakariya.salie07@gmail.com</p>
           </div>
         </div>
-        <div class="col-md-4">
+        <div class="col-md-4 col-sm-12 mb-4">
           <div class="content-box">
             <div class="d-flex flex-column about-me-actions">
               <a class="btn1 about-me-contact-btn mb-4" href="#resume" id="link1button">Resume</a>
@@ -62,11 +62,11 @@ export default {
 
 <style scoped>
 .about-me {
-  position: relative; /* Ensure relative positioning for background image */
+  position: relative;
   text-align: center;
   padding: 5rem;
-  color: white; /* Ensure text is readable on the background image */
-  overflow: hidden; /* Ensure blurred content doesn't overflow */
+  color: white;
+  overflow: hidden;
 }
 
 .background-container {
@@ -76,7 +76,7 @@ export default {
   width: 100%;
   height: 100%;
   z-index: -1;
-  overflow: hidden; /* Ensure no overflow */
+  overflow: hidden;
 }
 
 .background-image {
@@ -84,7 +84,7 @@ export default {
   height: 100%;
   object-fit: cover;
   filter: blur(8px);
-  -webkit-filter: blur(8px); /* For Safari */
+  -webkit-filter: blur(8px);
 }
 
 .container {
@@ -94,76 +94,75 @@ export default {
 }
 
 .content-box {
-  border: 2px solid #1abc9c; /* Border style */
-  background-color: rgba(44, 62, 80, 0.9); /* Background similar to navbar */
+  border: 2px solid #1abc9c;
+  background-color: rgba(44, 62, 80, 0.9);
   padding: 1rem;
   margin-bottom: 1rem;
-  transition: transform 0.3s, border-color 0.3s, box-shadow 0.3s; /* Smooth transitions */
+  transition: transform 0.3s, border-color 0.3s, box-shadow 0.3s;
 }
 
 .content-box:hover {
-  transform: scale(1.05); /* Slightly increase size on hover */
-  border-color: #1abc9c; /* Light green border color on hover */
-  box-shadow: 0 8px 16px rgba(0, 0, 0, 0.3); /* Box shadow on hover */
+  transform: scale(1.05);
+  border-color: #1abc9c;
+  box-shadow: 0 8px 16px rgba(0, 0, 0, 0.3);
 }
 
 .about-me-title {
-  color: #ecf0f1; /* Light text color */
+  color: #ecf0f1;
 }
 
 .about-me-description {
-  color: #ecf0f1; /* Light text color */
+  color: #ecf0f1;
 }
 
 .about-me-content {
   margin-bottom: 1rem;
-  color: #ecf0f1; /* Light text color */
-  transition: color 0.3s; /* Smooth color transition */
-  
+  color: #ecf0f1;
+  transition: color 0.3s;
 }
 
 .about-me-content:hover {
-  color: #1abc9c; /* Light green text color on hover */
+  color: #1abc9c;
 }
 
 .btn1 {
   display: inline-block;
   padding: 0.5rem 1rem;
-  border: 2px solid white; /* Border style */
-  color: white; /* Text color */
+  border: 2px solid white;
+  color: white;
   text-decoration: none;
   font-weight: bold;
   border-radius: 4px;
-  position: relative; /* Ensure the relative positioning for the pseudo-element */
-  overflow: hidden; /* Hide overflow from typing animation */
-  transition: color 0.3s, background-color 0.3s, transform 0.3s; /* Smooth transitions */
+  position: relative;
+  overflow: hidden;
+  transition: color 0.3s, background-color 0.3s, transform 0.3s;
 }
 
 .btn1::after {
-  content: attr(data-text); /* Display content from data-text attribute */
+  content: attr(data-text);
   position: absolute;
   top: 0;
   left: 0;
   width: 0;
-  color: #2c3e50; /* Text color */
+  color: #2c3e50;
   white-space: nowrap;
   overflow: hidden;
-  animation: typing 1s steps(20, end) infinite; /* Adjust steps as needed */
+  animation: typing 1s steps(20, end) infinite;
 }
 
 .btn1:hover::after {
-  color: #1abc9c; /* Light green text color on hover */
+  color: #1abc9c;
 }
 
 .btn1:hover {
-  color: #1abc9c; /* Light green text color on hover */
-  background-color: #ecf0f1; /* Light background color on hover */
-  transform: scale(1.05); /* Slightly increase size on hover */
+  color: #1abc9c;
+  background-color: #ecf0f1;
+  transform: scale(1.05);
 }
 
 .grid {
   display: grid;
-  grid-template-columns: 1fr 1fr; /* Define grid columns */
+  grid-template-columns: 1fr 1fr;
   gap: 1rem;
 }
 
@@ -173,6 +172,65 @@ export default {
   }
   to {
     width: 100%;
+  }
+}
+
+@media (max-width: 768px) {
+  .about-me {
+    padding: 2rem;
+  }
+
+  .container {
+    padding: 1rem;
+  }
+
+  .content-box {
+    padding: 0.5rem;
+  }
+
+  .about-me-title {
+    font-size: 1.5rem;
+    padding: 0.5rem;
+  }
+
+  .about-me-description {
+    font-size: 0.875rem;
+  }
+
+  .about-me-content {
+    font-size: 0.875rem;
+  }
+
+  .grid {
+    grid-template-columns: 1fr;
+  }
+
+  .btn1 {
+    padding: 0.5rem;
+  }
+}
+
+@media (max-width: 576px) {
+  .content-box {
+    padding: 0.25rem;
+  }
+
+  .about-me-title {
+    font-size: 1.25rem;
+    padding: 0.25rem;
+  }
+
+  .about-me-description {
+    font-size: 0.75rem;
+  }
+
+  .about-me-content {
+    font-size: 0.75rem;
+  }
+
+  .btn1 {
+    padding: 0.5rem;
+    font-size: 0.875rem;
   }
 }
 </style>

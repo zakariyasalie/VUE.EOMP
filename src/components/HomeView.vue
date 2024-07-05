@@ -95,4 +95,33 @@ export default {
   color: #1abc9c; /* Light green color on hover */
   transform: scale(1.1);
 }
+
+@media (max-width: 768px) {
+  .home h1 {
+    font-size: 2.5rem; /* Adjust font size */
+  }
+
+  .home h5 {
+    font-size: 1.25rem; /* Adjust font size */
+  }
+
+  .home .profile-photo {
+    width: 120px; /* Adjust size */
+  }
+}
+
+@media (max-width: 576px) {
+  .home h1 {
+    font-size: 2rem; /* Adjust font size */
+  }
+
+  .home h5 {
+    font-size: 1rem; /* Adjust font size */
+  }
+
+  .home .profile-photo {
+    width: 100px; /* Adjust size */
+    margin-top: 1.5rem; /* Adjust margin */
+  }
+}
 </style>

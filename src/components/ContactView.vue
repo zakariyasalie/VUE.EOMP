@@ -81,10 +81,10 @@ export default {
 
 <style scoped>
 .about-me {
-  position: relative; /* Ensure relative positioning for background image */
+  position: relative;
   text-align: center;
   padding: 5rem;
-  color:#1abc9c; /* Ensure text is readable on the background image */
+  color: #1abc9c; /* Text color */
 }
 
 .background-container {
@@ -163,7 +163,7 @@ export default {
   display: inline-block;
   padding: 0.5rem 1rem;
   border: 2px solid #2c3e50; /* Border style */
-  color:#1abc9c; /* Text color */
+  color: #1abc9c; /* Text color */
   text-decoration: none;
   font-weight: bold;
   border-radius: 4px;
@@ -200,6 +200,78 @@ export default {
   }
   to {
     width: 100%;
+  }
+}
+
+@media (max-width: 768px) {
+  .about-me {
+    padding: 3rem 1rem; /* Adjust padding */
+  }
+
+  .container {
+    padding: 1rem;
+  }
+
+  .content-box {
+    padding: 0.75rem;
+  }
+
+  .about-me-title {
+    font-size: 1.5rem; /* Adjust font size */
+    padding: 0.5rem;
+  }
+
+  .about-me-description {
+    font-size: 0.875rem; /* Adjust font size */
+  }
+
+  .about-me-content {
+    font-size: 0.875rem; /* Adjust font size */
+  }
+
+  .form-control {
+    font-size: 0.875rem; /* Adjust font size */
+  }
+
+  .btn1 {
+    padding: 0.5rem 1rem; /* Adjust padding */
+    font-size: 0.875rem; /* Adjust font size */
+  }
+}
+
+@media (max-width: 576px) {
+  .about-me {
+    padding: 2rem 1rem; /* Adjust padding */
+  }
+
+  .container {
+    padding: 0.5rem;
+  }
+
+  .content-box {
+    padding: 0.5rem;
+  }
+
+  .about-me-title {
+    font-size: 1.25rem; /* Adjust font size */
+    padding: 0.25rem;
+  }
+
+  .about-me-description {
+    font-size: 0.75rem; /* Adjust font size */
+  }
+
+  .about-me-content {
+    font-size: 0.75rem; /* Adjust font size */
+  }
+
+  .form-control {
+    font-size: 0.75rem; /* Adjust font size */
+  }
+
+  .btn1 {
+    padding: 0.5rem; /* Adjust padding */
+    font-size: 0.75rem; /* Adjust font size */
   }
 }
 </style>

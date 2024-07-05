@@ -23,6 +23,9 @@ import Resume from './components/ResumeView.vue'
 import Projects from './components/ProjectsView.vue'
 import Testimonials from './components/TestimonialsView.vue'
 import Contact from './components/ContactView.vue'
+import '@fortawesome/fontawesome-free/css/all.css'
+  import '@fortawesome/fontawesome-free/js/all.js'
+  
 
 export default {
   name: 'App',

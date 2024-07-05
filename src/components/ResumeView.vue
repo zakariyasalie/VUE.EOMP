@@ -151,4 +151,42 @@ export default {
 .card-text:hover {
   color: #1abc9c;
 }
+
+@media (max-width: 768px) {
+  .resume {
+    padding: 2rem;
+  }
+
+  .container {
+    padding: 1rem;
+  }
+
+  .content-box {
+    padding: 0.5rem;
+  }
+
+  .resume-title, .education-title, .work-experience-title {
+    font-size: 1.5rem;
+    padding: 0.5rem;
+  }
+
+  .resume-content {
+    font-size: 0.875rem;
+  }
+}
+
+@media (max-width: 576px) {
+  .content-box {
+    padding: 0.25rem;
+  }
+
+  .resume-title, .education-title, .work-experience-title {
+    font-size: 1.25rem;
+    padding: 0.25rem;
+  }
+
+  .resume-content {
+    font-size: 0.75rem;
+  }
+}
 </style>

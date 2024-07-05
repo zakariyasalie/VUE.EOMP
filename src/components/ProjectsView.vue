@@ -4,7 +4,7 @@
       <img src="https://zakariyasalie.github.io/allimages/images/background1.png" alt="Background" loading="lazy" class="background-image">
     </div>
     <div class="container">
-      <h1 class="text-light" data-aos="zoom-in-up">{{ projectsTitle }}</h1>
+      <h1 class="project-title text-light " data-aos="zoom-in-up">{{ projectsTitle }}</h1>
       <div class="card-grid">
         <div class="card" v-for="project in projects" :key="project.title">
           <img :src="project.image" class="card-img-top" :alt="project.title" @error="handleImageError">
@@ -49,6 +49,20 @@ export default {
   padding: 5rem;
   color: white;
   overflow: hidden;
+}
+.project-title {
+  border: 2px solid #2c3e50;
+  padding: 1rem;
+  margin-bottom: 1rem;
+  transition: transform 0.3s, border-color 0.3s, box-shadow 0.3s;
+  background-color:  #2c3e50;
+  color: #1abc9c;
+}
+
+.project-title:hover {
+  transform: scale(1.05);
+  border-color: #1abc9c;
+  box-shadow: 0 8px 16px rgba(0, 0, 0, 0.3);
 }
 
 .background-container {

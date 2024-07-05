@@ -1,6 +1,9 @@
 <template>
   <footer>
     <a href="#" @click="scrollToTop">&copy; {{ currentYear }} Zakariya Salie</a>
+    <a href="https://github.com/zakariyasalie" target="_blank" class="github-icon">
+      <i class="fab fa-github"></i>
+    </a>
   </footer>
 </template>
 
@@ -34,9 +37,15 @@ footer {
 footer a {
   color: white;
   text-decoration: none;
+  margin: 0 10px; /* Add margin between text and icon */
 }
 
 footer a:hover {
   color: #1abc9c;
+}
+
+.github-icon {
+  font-size: 1.5rem; /* Adjust icon size */
+  margin-left: 10px; /* Adjust spacing */
 }
 </style>
