@@ -94,7 +94,7 @@ export default {
 }
 
 .content-box {
-  border: 2px solid #2c3e50; /* Border style */
+  border: 2px solid #1abc9c; /* Border style */
   background-color: rgba(44, 62, 80, 0.9); /* Background similar to navbar */
   padding: 1rem;
   margin-bottom: 1rem;
@@ -119,6 +119,7 @@ export default {
   margin-bottom: 1rem;
   color: #ecf0f1; /* Light text color */
   transition: color 0.3s; /* Smooth color transition */
+  
 }
 
 .about-me-content:hover {
@@ -128,8 +129,8 @@ export default {
 .btn1 {
   display: inline-block;
   padding: 0.5rem 1rem;
-  border: 2px solid #2c3e50; /* Border style */
-  color: #2c3e50; /* Text color */
+  border: 2px solid white; /* Border style */
+  color: white; /* Text color */
   text-decoration: none;
   font-weight: bold;
   border-radius: 4px;
