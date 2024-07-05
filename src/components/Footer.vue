@@ -1,6 +1,6 @@
 <template>
   <footer>
-    <p>&copy; {{ currentYear }} Your Name. All rights reserved.</p>
+    <a href="#" @click="scrollToTop">&copy; {{ currentYear }} Zakariya Salie</a>
   </footer>
 </template>
 
@@ -11,6 +11,14 @@ export default {
     return {
       currentYear: new Date().getFullYear()
     }
+  },
+  methods: {
+    scrollToTop() {
+      window.scrollTo({
+        top: 0,
+        behavior: 'smooth'
+      });
+    }
   }
 }
 </script>
@@ -19,7 +27,16 @@ export default {
 footer {
   text-align: center;
   padding: 1rem;
-  background-color: #333;
+  background-color: #2c3e50;
   color: white;
+}
+
+footer a {
+  color: white;
+  text-decoration: none;
+}
+
+footer a:hover {
+  color: #1abc9c;
 }
 </style>

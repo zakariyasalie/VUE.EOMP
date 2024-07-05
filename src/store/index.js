@@ -1,36 +1,118 @@
-import { createStore } from 'vuex'
+import { createStore } from 'vuex';
+import axios from 'axios';
+import Swal from 'sweetalert2';
+
+const portfolioURL = 'https://zakariyasalie.github.io/jsonData/data/';
 
 export default createStore({
   state: {
-    education: [],
+    home: '',
+    about: '',
+    resume: null,
     skills: [],
+    projects: [],
+    testimonials: [],
+    contact: ''
   },
   mutations: {
-    SET_EDUCATION(state, education) {
-      state.education = education;
+    setHome(state, data) {
+      state.home = data;
     },
-    SET_SKILLS(state, skills) {
-      state.skills = skills;
+    setAbout(state, about) {
+      state.about = about;
+    },
+    setResume(state, resume) {
+      state.resume = resume;
+    },
+    setProjects(state, projects) {
+      state.projects = projects;
+    },
+    setTestimonials(state, testimonials) {
+      state.testimonials = testimonials;
+    },
+    setContact(state, contact) {
+      state.contact = contact;
     }
   },
   actions: {
-    async fetchEducation({ commit }) {
+    async getHome(context) {
       try {
-        const response = await fetch('https://yourusername.github.io/yourrepo/path/to/education.json');
-        const data = await response.json();
-        commit('SET_EDUCATION', data.education);
+        const res = await axios.get(portfolioURL);
+        context.commit('setHome', res.data.home);
       } catch (error) {
-        console.error('Error fetching education data:', error);
+        Swal.fire({
+          title: 'Error',
+          text: 'Cannot retrieve home data',
+          icon: 'error',
+          timer: 2000
+        });
       }
     },
-    async fetchSkills({ commit }) {
+    async getAbout(context) {
       try {
-        const response = await fetch('https://yourusername.github.io/yourrepo/path/to/skills.json');
-        const data = await response.json();
-        commit('SET_SKILLS', data.skills);
+        const res = await axios.get(portfolioURL);
+        context.commit('setAbout', res.data.about);
       } catch (error) {
-        console.error('Error fetching skills data:', error);
+        Swal.fire({
+          title: 'Error',
+          text: 'Cannot retrieve about data',
+          icon: 'error',
+          timer: 2000
+        });
+      }
+    },
+    async getResume(context) {
+      try {
+        const res = await axios.get(portfolioURL);
+        context.commit('setResume', res.data);
+      } catch (error) {
+        Swal.fire({
+          title: 'Error',
+          text: 'Cannot retrieve resume data',
+          icon: 'error',
+          timer: 2000
+        });
+      }
+    },
+    async getProjects(context) {
+      try {
+        const res = await axios.get(portfolioURL);
+        context.commit('setProjects', res.data.projects);
+      } catch (error) {
+        Swal.fire({
+          title: 'Error',
+          text: 'Cannot retrieve projects data',
+          icon: 'error',
+          timer: 2000
+        });
+      }
+    },
+    async getTestimonials(context) {
+      try {
+        const res = await axios.get(portfolioURL);
+        context.commit('setTestimonials', res.data.testimonials);
+      } catch (error) {
+        Swal.fire({
+          title: 'Error',
+          text: 'Cannot retrieve testimonials data',
+          icon: 'error',
+          timer: 2000
+        });
+      }
+    },
+    async getContact(context) {
+      try {
+        const res = await axios.get(portfolioURL);
+        context.commit('setContact', res.data.contact);
+      } catch (error) {
+        Swal.fire({
+          title: 'Error',
+          text: 'Cannot retrieve contact data',
+          icon: 'error',
+          timer: 2000
+        });
       }
     }
-  }
-})
+  },
+  modules: {}
+});

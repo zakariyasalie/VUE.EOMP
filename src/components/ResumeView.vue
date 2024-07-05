@@ -1,97 +1,154 @@
 <template>
-<div class="grid gap-3 row-gap-1" id="Resume">
-  <h1>Resume</h1>
-  <div class="p-2 g-col-3"><br /></div>
-  <div class="p-2 g-col-3"><br /></div>
-</div>
-                <section  class="text-light">
-                    <div class="container text-center">
-                      <h2 class="text-uppercase mb-4 about-me-title" data-aos="zoom-in-up">My Resume</h2>
-                        <div class="row">
-                            <div class="col">
-                                <h3 class="education-title">Education:</h3>
-                                <div class="accordion" id="accordionExample">
-                                    <div class="accordion-item bg-transparent">
-                                      <h2 class="accordion-header">
-                                        <button class="accordion-button bg-transparent" type="button" data-bs-toggle="collapse" data-bs-target="#collapseD1" aria-expanded="true" aria-controls="collapseD1">
-                                          Rondebosch Boys High School
-                                        </button>
-                                      </h2>
-                                      <div id="collapseD1" class="accordion-collapse collapse show" data-bs-parent="#accordionExample">
-                                        <div class="accordion-body">
-                                            <h6>Subjects</h6>
-                                            <ul>
-                                                <li>Mathematics</li>
-                                                <li>English</li>
-                                                <li>Afrikaans</li>
-                                                <li>Physics</li>
-                                                <li>Engineering and Graphic Designing</li>
-                                                <li>Life Sciences</li>
-                                                <li>Life Orientation</li>
-                                              </ul>
-                                        </div>
-                                      </div>
-                                    </div>
-                                </div>
-                            </div>
-                            <class class="col">
-                                <h3 class="work-experience-title">Work Experience</h3>
-                                <div class="accordion" id="accordionExample">
-                                    <div class="accordion-item bg-transparent">
-                                      <h2 class="accordion-header">
-                                        <button class="accordion-button bg-transparent" type="button" data-bs-toggle="collapse" data-bs-target="#collapseOne" aria-expanded="true" aria-controls="collapseOne">
-                                          iStore Canal Walk
-                                        </button>
-                                      </h2>
-                                      <div id="collapseOne" class="accordion-collapse collapse show" data-bs-parent="#accordionExample">
-                                        <div class="accordion-body">
-                                        <h6>iStore Sales Consultant </h6>
-                                        <p>
-                                          My job duties were to ensure that the sales floor was clean and in order at all times. We were handed the tasks of doing things like trade-ins where you are required to run diagnostics on devices to check if the devices worked properly before trading in. This is where my love for IT started.
-                                        </p>
-                                        </div>
-                                      </div>
-                                    </div>
-                                    <div class="accordion-item bg-transparent">
-                                      <h2 class="accordion-header">
-                                        <button class="accordion-button collapsed bg-transparent" type="button" data-bs-toggle="collapse" data-bs-target="#collapseTwo" aria-expanded="false" aria-controls="collapseTwo">
-                                          Ekhula Fuels
-                                        </button>
-                                      </h2>
-                                      <div id="collapseTwo" class="accordion-collapse collapse" data-bs-parent="#accordionExample">
-                                        <div class="accordion-body">
-                                         <h6>Bookkeeper & accountant</h6>
-                                         <p>
-                                          I worked as an accountant and bookkeeper for ekhula fuels for 7 months in 2023. This was between February and August, I was in charge of watching cashflow, writing up monthly statements for the clients as well as monitoring stock. This taught me cash flow, and how businesses need to keep money moving in and out of the company.
-                                         </p>
-                                        </div>
-                                      </div>
-                                    </div>
-                                  </div>
-                            </class>
-                        </div>
-                    </div>
-                </section>
-  </template>
-  
-  <script>
-  import { mapState } from 'vuex';
-  
-  export default {
-    name: 'ResumeView',
-    computed: {
-      ...mapState(['education', 'skills'])
-    },
-    created() {
-      this.$store.dispatch('fetchEducation');
-      this.$store.dispatch('fetchSkills');
-    }
+  <section id="resume" class="resume">
+    <div class="background-container">
+      <img src="https://zakariyasalie.github.io/allimages/images/background1.png" alt="Background" loading="lazy" class="background-image">
+    </div>
+    <div class="container">
+      <div class="row mt-5">
+        <div class="col-12 text-center">
+          <h2 class="text-uppercase mb-4 resume-title" id="resume-title" data-aos="zoom-in-up">
+            {{ resumeData?.education?.title || 'Loading...' }}
+          </h2>
+        </div>
+        <div class="col-md-6" v-if="resumeData?.education">
+          <h3 class="education-title content-box-title">{{ resumeData.education.schools[0].name }}</h3>
+          <ul>
+            <li v-for="subject in resumeData.education.schools[0].subjects" :key="subject" class="resume-content content-box">{{ subject }}</li>
+          </ul>
+        </div>
+        <div class="col-md-6" v-if="resumeData?.workExperience">
+          <h3 class="work-experience-title content-box-title">{{ resumeData.workExperience.title }}</h3>
+          <div v-for="job in resumeData.workExperience.jobs" :key="job.company" class="content-box">
+            <h4>{{ job.company }}</h4>
+            <h5>{{ job.position }}</h5>
+            <p>{{ job.description }}</p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+</template>
+
+<script>
+import { mapState, mapActions } from 'vuex';
+
+export default {
+  name: 'ResumeView',
+  computed: {
+    ...mapState({
+      resumeData: state => state.resume,
+      projects: state => state.projects
+    })
+  },
+  created() {
+    this.getResume();
+    this.getProjects(); // Fetch projects data when component is created
+  },
+  methods: {
+    ...mapActions(['getResume', 'getProjects'])
   }
-  </script>
-  
-  <style scoped>
-  .resume {
-    padding: 2rem;
-  }
-  </style>
-  
+}
+</script>
+
+<style scoped>
+.resume {
+  position: relative;
+  text-align: center;
+  padding: 5rem;
+  color: white;
+  overflow: hidden;
+}
+
+.background-container {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  z-index: -1;
+  overflow: hidden;
+}
+
+.background-image {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  filter: blur(8px);
+  -webkit-filter: blur(8px);
+}
+
+.container {
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 2rem;
+}
+
+.content-box {
+  border: 2px solid #2c3e50;
+  padding: 1rem;
+  margin-bottom: 1rem;
+  transition: transform 0.3s, border-color 0.3s, box-shadow 0.3s;
+  background-color:  #2c3e50;
+}
+
+.content-box:hover {
+  transform: scale(1.05);
+  border-color: #1abc9c;
+  box-shadow: 0 8px 16px rgba(0, 0, 0, 0.3);
+}
+
+.content-box-title {
+  color: #1abc9c;
+}
+
+.resume-title, .education-title, .work-experience-title {
+  border: 2px solid #2c3e50;
+  padding: 1rem;
+  margin-bottom: 1rem;
+  transition: transform 0.3s, border-color 0.3s, box-shadow 0.3s;
+  background-color:  #2c3e50;
+  color: #1abc9c;
+}
+
+.resume-title:hover, .education-title:hover, .work-experience-title:hover {
+  transform: scale(1.05);
+  border-color: #1abc9c;
+  box-shadow: 0 8px 16px rgba(0, 0, 0, 0.3);
+}
+
+.resume-content {
+  margin-bottom: 1rem;
+  color: white;
+  transition: color 0.3s;
+}
+
+.resume-content:hover {
+  color: #1abc9c;
+}
+
+.card {
+  border: 2px solid #2c3e50;
+  margin-bottom: 1rem;
+  transition: transform 0.3s, border-color 0.3s, box-shadow 0.3s;
+  color: #1abc9c;
+}
+
+.card:hover {
+  transform: scale(1.05);
+  border-color: #1abc9c;
+  box-shadow: 0 8px 16px rgba(0, 0, 0, 0.3);
+}
+
+.card-title {
+  color: #2c3e50;
+}
+
+.card-text {
+  color: #2c3e50;
+  transition: color 0.3s;
+}
+
+.card-text:hover {
+  color: #1abc9c;
+}
+</style>
