@@ -24,8 +24,9 @@ import Projects from './components/ProjectsView.vue'
 import Testimonials from './components/TestimonialsView.vue'
 import Contact from './components/ContactView.vue'
 import '@fortawesome/fontawesome-free/css/all.css'
-  import '@fortawesome/fontawesome-free/js/all.js'
-  
+import '@fortawesome/fontawesome-free/js/all.js'
+
+
 
 export default {
   name: 'App',
@@ -43,5 +44,11 @@ export default {
 </script>
 
 <style>
-/* Add any global styles here */
+@import url('https://fonts.googleapis.com/css2?family=DejaVu+Sans+Mono&display=swap');
+
+body {
+  font-family: 'DejaVu Sans Mono', monospace;
+}
 </style>
+
+
