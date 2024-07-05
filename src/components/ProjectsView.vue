@@ -5,15 +5,13 @@
     </div>
     <div class="container">
       <h1 class="text-light" data-aos="zoom-in-up">{{ projectsTitle }}</h1>
-      <div class="row">
-        <div class="col-md-4" v-for="project in projects" :key="project.title">
-          <div class="card" style="width: 18rem;">
-            <img :src="project.image" class="card-img-top" :alt="project.title">
-            <div class="card-body">
-              <h5 class="card-title">{{ project.title }}</h5>
-              <p class="card-text">{{ project.description }}</p>
-              <a :href="project.url" class="btn btn-primary">Visit URL</a>
-            </div>
+      <div class="card-grid">
+        <div class="card" v-for="project in projects" :key="project.title">
+          <img :src="project.image" class="card-img-top" :alt="project.title" @error="handleImageError">
+          <div class="card-body">
+            <h5 class="card-title">{{ project.title }}</h5>
+            <p class="card-text">{{ project.description }}</p>
+            <a :href="project.url" class="btn btn-primary">Visit URL</a>
           </div>
         </div>
       </div>
@@ -36,7 +34,10 @@ export default {
     this.getProjects();
   },
   methods: {
-    ...mapActions(['getProjects'])
+    ...mapActions(['getProjects']),
+    handleImageError(event) {
+      event.target.src = 'https://via.placeholder.com/150'; // Default image URL
+    }
   }
 }
 </script>
@@ -74,10 +75,19 @@ export default {
   padding: 2rem;
 }
 
+.card-grid {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-around;
+  gap: 2rem;
+}
+
 .card {
+  flex: 1 1 calc(33.333% - 2rem);
   border: 2px solid #2c3e50;
   margin-bottom: 1rem;
   transition: transform 0.3s, border-color 0.3s, box-shadow 0.3s;
+  background-color: #2c3e50;
 }
 
 .card:hover {
@@ -86,16 +96,26 @@ export default {
   box-shadow: 0 8px 16px rgba(0, 0, 0, 0.3);
 }
 
+.card-img-top {
+  width: 100%;
+  height: 200px; /* Fixed height for images */
+  object-fit: cover;
+}
+
 .card-title {
-  color: #2c3e50;
+  color: #1abc9c;
 }
 
 .card-text {
-  color: #2c3e50;
+  color: white;
   transition: color 0.3s;
 }
 
 .card-text:hover {
   color: #1abc9c;
+}
+.btn{
+  color: #1abc9c;
+  background-color: #2c3e50;
 }
 </style>
