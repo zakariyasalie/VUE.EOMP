@@ -6,7 +6,7 @@
     <div class="container position-relative">
       <h1 class="testimonials-title justify-content-center" data-aos="zoom-in-up">Testimonials</h1>
       <div class="grid">
-        <div class="card-container col-md-6 col-lg-4 d-flex justify-content-center" v-for="(testimonial, index) in testimonials" :key="index">
+        <div class="card-container" v-for="(testimonial, index) in testimonials" :key="index">
           <div class="card mb-4 shadow-sm">
             <div class="card-body d-flex align-items-center">
               <img :src="testimonial.image" class="card-img-left mr-3 rounded-circle" :alt="testimonial.name">
@@ -87,7 +87,6 @@ export default {
 }
 
 .card {
-  margin-left: 50px;
   border: 2px solid #1abc9c;
   background-color: rgba(44, 62, 80, 0.9);
   padding: 1rem;
@@ -125,13 +124,19 @@ h1 {
 
 .grid {
   display: grid;
-  grid-template-columns: repeat(2, 1fr);
+  grid-template-columns: repeat(1, 1fr);
   gap: 1rem;
 }
 
-@media (min-width: 768px) {
-  .card-container {
-    max-width: 400px;
+@media (min-width: 576px) {
+  .grid {
+    grid-template-columns: repeat(2, 1fr);
+  }
+}
+
+@media (min-width: 992px) {
+  .grid {
+    grid-template-columns: repeat(3, 1fr);
   }
 }
 </style>

@@ -118,4 +118,25 @@ export default {
   color: #1abc9c;
   background-color: #2c3e50;
 }
+@media (max-width: 1200px) {
+  .card {
+    flex: 1 1 calc(50% - 2rem); /* 2 columns for medium screens */
+  }
+}
+
+@media (max-width: 768px) {
+  .card {
+    flex: 1 1 calc(100% - 2rem); /* 1 column for small screens */
+  }
+}
+
+@media (max-width: 576px) {
+  .projects {
+    padding: 2rem;
+  }
+
+  .card {
+    margin-bottom: 1.5rem;
+  }
+} 
 </style>
