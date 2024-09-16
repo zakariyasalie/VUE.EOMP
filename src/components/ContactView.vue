@@ -45,13 +45,17 @@
               <label for="message" class="about-me-content">Message:</label>
               <textarea id="message" v-model="form.message" class="form-control" required></textarea>
             </div>
-            <button type="submit" class="btn1 about-me-contact-btn ">Submit</button>
+            <div class="d-flex justify-content-between">
+              <button type="submit" class="btn1 about-me-contact-btn">Submit</button>
+              <button type="button" class="btn1 about-me-contact-btn" @click="handleDelete">Delete</button>
+            </div>
           </form>
         </div>
       </div>
     </div>
   </section>
 </template>
+
 
 <script>
 export default {
@@ -74,10 +78,16 @@ export default {
       } else {
         alert('Please fill in all fields.');
       }
+    },
+    handleDelete() {
+      if (confirm('Are you sure you want to clear the form?')) {
+        this.form = { name: '', email: '', message: '' };
+      }
     }
   }
 };
 </script>
+
 
 <style scoped>
 .about-me {
