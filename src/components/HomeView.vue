@@ -7,7 +7,7 @@
       <div class="container">
         <div class="row align-items-center justify-content-center text-center">
           <div class="col-12">
-            <h1>Welcome to My Portfolio</h1>
+            <h1>My name is, Zakariya Salie.</h1>
             <img src="https://zakariyasalie.github.io/allimages/images/zak1.jpg" alt="Professional Photo" loading="lazy" class="profile-photo">
             <div class="row-6">
               <h5>I am an aspiring software developer</h5>

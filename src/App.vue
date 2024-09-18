@@ -6,7 +6,6 @@
       <About />
       <Resume />
       <Projects />
-      <Testimonials />
       <Contact />
     </main>
     <Footer />
@@ -21,7 +20,6 @@ import Home from './components/HomeView.vue'
 import About from './components/AboutView.vue'
 import Resume from './components/ResumeView.vue'
 import Projects from './components/ProjectsView.vue'
-import Testimonials from './components/TestimonialsView.vue'
 import Contact from './components/ContactView.vue'
 import '@fortawesome/fontawesome-free/css/all.css'
 import '@fortawesome/fontawesome-free/js/all.js'
@@ -37,7 +35,6 @@ export default {
     About,
     Resume,
     Projects,
-    Testimonials,
     Contact
   }
 }

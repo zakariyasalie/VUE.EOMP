@@ -15,9 +15,9 @@
       <div class="row">
         <div class="col-12 text-center">
           <div class="content-box">
-            <h2 class="text-uppercase mb-4 about-me-title" id="about-me-heading" data-aos="fade-left">About me</h2>
+            <h1 class="text-uppercase mb-4 about-me-title" id="about-me-heading" data-aos="fade-left">About me</h1>
             <p class="text-center about-me-description" id="text-about-me">
-              As a passionate enthusiast of cars and games, a sports aficionado, and a dedicated computer enthusiast, I find joy in blending my diverse interests into captivating web designs. With a fervent love for creation, I channel my energy into crafting immersive digital experiences that seamlessly integrate my passions. From sleek automotive-inspired layouts to dynamic gaming interfaces, each project reflects my commitment to innovation and attention to detail. Explore my portfolio to witness the fusion of my interests and my dedication to crafting engaging online environments.
+              I am a 19 year old male from Cape Town, South Africa. My passion for coding is what drives me to want to learn more and more, all the time. I enjoy sports and being outside as much as I enjoy staying inside and working on a coding project. I am determined to make a name for myself in the IT world. I love people, talking and working with people make things a lot more fun and interesting, however I work well alone as well. I 
             </p>
           </div>
         </div>

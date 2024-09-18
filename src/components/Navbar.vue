@@ -9,6 +9,7 @@
       <div class="nav-links">
         <a href="#home" @click="closeNav">Home</a>
         <a href="#about" @click="closeNav">About</a>
+        <a href="#resume" @click="closeNav">Resume</a>
         <a href="#projects" @click="closeNav">Projects</a>
         <a href="#contact" @click="closeNav">Contact</a>
       </div>
