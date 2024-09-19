@@ -4,15 +4,7 @@
       <img src="https://zakariyasalie.github.io/allimages/images/background1.png" alt="Background" loading="lazy" class="background-image">
     </div>
     <div class="container">
-      <!-- Existing Content -->
-      <div class="grid gap-3 row-gap-1">
-        <div class="p-2 g-col-3 border-bottom">
-          <br />
-        </div>
-        <div class="p-2 g-col-3 border-bottom">
-          <br />
-        </div>
-      </div>
+      <!-- About Me Section -->
       <div class="row">
         <div class="col-12 text-center">
           <div class="content-box">
@@ -23,9 +15,11 @@
           </div>
         </div>
       </div>
+
+      <!-- Middle Boxes -->
       <div class="row mt-5">
-        <div class="col-md-4 col-sm-6 mb-4">
-          <div class="content-box">
+        <div class="col-md-4 mb-4 d-flex">
+          <div class="content-box flex-grow-1">
             <p class="about-me-content">Full Name:</p>
             <p class="about-me-content">Address:</p>
             <p class="about-me-content">Date of birth:</p>
@@ -33,20 +27,21 @@
             <p class="about-me-content">Email:</p>
           </div>
         </div>
-        <div class="col-md-4 col-sm-6 mb-4">
-          <div class="content-box">
+        <div class="col-md-4 mb-4 d-flex">
+          <div class="content-box flex-grow-1">
             <p class="about-me-content">Zakariya Salie</p>
-            <p class="about-me-content">Ottery, Cape Town, Western Cape, South Africa</p>
+            <p class="about-me-content">Ottery, Cape Town, South Africa</p>
             <p class="about-me-content">07/03/2005</p>
             <p class="about-me-content">+27(65) 813 1021</p>
             <p class="about-me-content">zakariya.salie07@gmail.com</p>
           </div>
         </div>
-        <div class="col-md-4 col-sm-12 mb-4">
-          <div class="content-box">
-            <div class="d-flex flex-column about-me-actions">
-              <a class="btn1 about-me-contact-btn mb-4" href="#resume" id="link1button">Resume</a>
-              <a class="btn1 about-me-download-btn" href="#contact">Contact me</a>
+        <div class="col-md-4 mb-4 d-flex">
+          <div class="content-box flex-grow-1">
+            <div class="d-flex flex-column align-items-center about-me-actions">
+              <a class="btn1 about-me-contact-btn mb-4" href="#resume">Resume</a>
+              <a class="btn1 about-me-contact-btn mb-4" href="#contact">Contact me</a>
+              <a class="btn1 about-me-projects-btn" href="#projects">Projects</a>
             </div>
           </div>
         </div>
@@ -221,12 +216,33 @@ export default {
   position: relative;
   overflow: hidden;
   transition: color 0.3s, background-color 0.3s, transform 0.3s;
+  font-size: 1rem;
+}
+
+.about-me-contact-btn,
+.about-me-projects-btn {
+  margin-bottom: 0.5rem;
+  width: 100%;
+}
+
+.btn1:hover {
+  background-color: white;
+  color: #1abc9c;
 }
 
 .grid {
   display: grid;
   grid-template-columns: 1fr 1fr;
   gap: 1rem;
+}
+
+.row {
+  display: flex;
+  flex-wrap: wrap;
+}
+
+.col-md-4 {
+  flex: 1 1 33%;
 }
 
 @media (max-width: 768px) {
@@ -255,22 +271,13 @@ export default {
     font-size: 0.875rem;
   }
 
-  .grid {
-    grid-template-columns: 1fr;
-  }
-
   .btn1 {
-    padding: 0.5rem;
-  }
-}
-
-@media (max-width: 576px) {
-  .content-box {
-    padding: 0.5rem;
+    padding: 0.25rem 0.5rem;
+    font-size: 0.875rem;
   }
 
-  .grid {
-    grid-template-columns: 1fr;
+  .skill-box {
+    font-size: 1rem;
   }
 }
 </style>
