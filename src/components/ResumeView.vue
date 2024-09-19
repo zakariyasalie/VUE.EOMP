@@ -4,22 +4,33 @@
       <img src="https://zakariyasalie.github.io/allimages/images/background1.png" alt="Background" loading="lazy" class="background-image">
     </div>
     <div class="container">
-      <div class="row mt-5">
+      <div class="row justify-content-center">
         <div class="col-12 text-center">
           <h2 class="text-uppercase mb-4 resume-title" id="resume-title" data-aos="zoom-in-up">
             {{ resumeData?.education?.title || 'Loading...' }}
           </h2>
         </div>
-        <div class="col-md-6" v-if="resumeData?.education">
-          <h3 class="education-title content-box-title ">{{ resumeData.education.schools[0].name }}</h3>
-          <ul class="list"> <!-- Corrected the class -->
-            <li v-for="subject in resumeData.education.schools[0].subjects" :key="subject" class="resume-content content-box">{{ subject }}</li>
-          </ul>
+      </div>
+
+      <div class="row justify-content-center mt-5">
+        <!-- Education Section -->
+        <div class="col-lg-5 col-md-6 mb-4" v-if="resumeData?.education">
+          <h3 class="section-header text-center">Education</h3>
+          <div class="content-box">
+            <h4 class="education-title content-box-title">{{ resumeData.education.schools[0].name }}</h4>
+            <ul class="list">
+              <li v-for="subject in resumeData.education.schools[0].subjects" :key="subject" class="resume-content">
+                {{ subject }}
+              </li>
+            </ul>
+          </div>
         </div>
-        <div class="col-md-6" v-if="resumeData?.workExperience">
-          <h3 class="work-experience-title content-box-title">{{ resumeData.workExperience.title }}</h3>
-          <div v-for="job in resumeData.workExperience.jobs" :key="job.company" class="content-box">
-            <h4>{{ job.company }}</h4>
+
+        <!-- Work Experience Section -->
+        <div class="col-lg-5 col-md-6 mb-4" v-if="resumeData?.workExperience">
+          <h3 class="section-header text-center">Work Experience</h3>
+          <div class="content-box" v-for="job in resumeData.workExperience.jobs" :key="job.company">
+            <h4 class="work-experience-title">{{ job.company }}</h4>
             <h5>{{ job.position }}</h5>
             <p>{{ job.description }}</p>
           </div>
@@ -42,7 +53,7 @@ export default {
   },
   created() {
     this.getResume();
-    this.getProjects(); // Fetch projects data when component is created
+    this.getProjects();
   },
   methods: {
     ...mapActions(['getResume', 'getProjects'])
@@ -54,16 +65,9 @@ export default {
 .resume {
   position: relative;
   text-align: center;
-  padding: 5rem;
+  padding: 5rem 0;
   color: white;
   overflow: hidden;
-}
-
-.list {
-  list-style-type: none; /* This will remove bullets */
-  padding: 0;
-  margin: 0;
-  text-decoration: none;
 }
 
 .background-container {
@@ -81,7 +85,6 @@ export default {
   height: 100%;
   object-fit: cover;
   filter: blur(8px);
-  -webkit-filter: blur(8px);
 }
 
 .container {
@@ -90,12 +93,20 @@ export default {
   padding: 2rem;
 }
 
+.row {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-wrap: wrap;
+}
+
 .content-box {
   border: 2px solid #2c3e50;
-  padding: 1rem;
-  margin-bottom: 1rem;
+  padding: 1.5rem;
+  margin-bottom: 1.5rem;
+  background-color: #2c3e50;
   transition: transform 0.3s, border-color 0.3s, box-shadow 0.3s;
-  background-color:  #2c3e50;
+  border-radius: 10px;
 }
 
 .content-box:hover {
@@ -112,9 +123,10 @@ export default {
   border: 2px solid #2c3e50;
   padding: 1rem;
   margin-bottom: 1rem;
-  transition: transform 0.3s, border-color 0.3s, box-shadow 0.3s;
-  background-color:  #2c3e50;
+  background-color: #2c3e50;
   color: #1abc9c;
+  border-radius: 8px;
+  transition: transform 0.3s, border-color 0.3s, box-shadow 0.3s;
 }
 
 .resume-title:hover, .education-title:hover, .work-experience-title:hover {
@@ -126,74 +138,44 @@ export default {
 .resume-content {
   margin-bottom: 1rem;
   color: white;
-  transition: color 0.3s;
 }
 
-.resume-content:hover {
+.section-header {
+  font-size: 2rem;
+  font-weight: bold;
   color: #1abc9c;
+  margin-bottom: 1.5rem;
+  padding-bottom: 0.75rem;
+  border-bottom: 3px solid #1abc9c;
+  text-transform: uppercase;
 }
 
-.card {
-  border: 2px solid #2c3e50;
-  margin-bottom: 1rem;
-  transition: transform 0.3s, border-color 0.3s, box-shadow 0.3s;
-  color: #1abc9c;
-}
-
-.card:hover {
-  transform: scale(1.05);
-  border-color: #1abc9c;
-  box-shadow: 0 8px 16px rgba(0, 0, 0, 0.3);
-}
-
-.card-title {
-  color: #2c3e50;
-}
-
-.card-text {
-  color: #2c3e50;
-  transition: color 0.3s;
-}
-
-.card-text:hover {
-  color: #1abc9c;
+ul.list {
+  padding-left: 20px;
 }
 
 @media (max-width: 768px) {
   .resume {
-    padding: 2rem;
-  }
-
-  .container {
-    padding: 1rem;
+    padding: 3rem 1rem;
   }
 
   .content-box {
-    padding: 0.5rem;
+    padding: 1rem;
+    margin-bottom: 1rem;
   }
 
   .resume-title, .education-title, .work-experience-title {
     font-size: 1.5rem;
-    padding: 0.5rem;
-  }
-
-  .resume-content {
-    font-size: 0.875rem;
   }
 }
 
 @media (max-width: 576px) {
   .content-box {
-    padding: 0.25rem;
+    padding: 0.75rem;
   }
 
   .resume-title, .education-title, .work-experience-title {
     font-size: 1.25rem;
-    padding: 0.25rem;
-  }
-
-  .resume-content {
-    font-size: 0.75rem;
   }
 }
 </style>

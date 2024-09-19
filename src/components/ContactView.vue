@@ -1,5 +1,5 @@
 <template>
-  <section id="contact" class="about-me">
+  <section id="contact" class="contact-section">
     <!-- Background Image Container -->
     <div class="background-container">
       <img src="https://zakariyasalie.github.io/allimages/images/background1.png" alt="Background" loading="lazy" class="background-image">
@@ -21,8 +21,8 @@
       <div class="row">
         <div class="col-12 text-center">
           <div class="content-box">
-            <h2 class="text-uppercase mb-4 about-me-title" id="about-me-heading" data-aos="fade-left">Contact</h2>
-            <p class="text-center about-me-description" id="text-about-me">
+            <h2 class="text-uppercase mb-4 contact-title" id="contact-heading" data-aos="fade-left">Contact</h2>
+            <p class="text-center contact-description" id="contact-description">
               Let's get in touch! Fill out the form below to send me a message.
             </p>
           </div>
@@ -34,32 +34,61 @@
         <div class="col-md-6 offset-md-3">
           <form @submit.prevent="handleSubmit" class="content-box">
             <div class="form-group">
-              <label for="name" class="about-me-content">Name:</label>
+              <label for="name" class="contact-label">Name:</label>
               <input type="text" id="name" v-model="form.name" class="form-control" required>
             </div>
             <div class="form-group">
-              <label for="email" class="about-me-content">Email:</label>
+              <label for="email" class="contact-label">Email:</label>
               <input type="email" id="email" v-model="form.email" class="form-control" required>
             </div>
             <div class="form-group">
-              <label for="message" class="about-me-content">Message:</label>
+              <label for="message" class="contact-label">Message:</label>
               <textarea id="message" v-model="form.message" class="form-control" required></textarea>
             </div>
             <div class="d-flex justify-content-between">
-              <button type="submit" class="btn1 about-me-contact-btn">Submit</button>
-              <button type="button" class="btn1 about-me-contact-btn" @click="handleDelete">Delete</button>
+              <button type="submit" class="btn1 contact-btn">Submit</button>
+              <button type="button" class="btn1 contact-btn" @click="handleDelete">Clear</button>
             </div>
           </form>
+        </div>
+      </div>
+
+      <!-- Contact Details and Social Media Section -->
+      <div class="row mt-5">
+        <div class="col-md-6 offset-md-3">
+          <div class="contact-details content-box">
+            <h3 class="contact-details-title">Contact Details</h3>
+            <ul class="contact-details-list">
+              <li>
+                <img src="https://img.icons8.com/ios-filled/50/1abc9c/phone.png" alt="Phone" class="contact-icon">
+                <span class="contact-info">+(27) 65 813 1021</span>
+              </li>
+              <li>
+                <img src="https://img.icons8.com/ios-filled/50/1abc9c/map-marker.png" alt="Area" class="contact-icon">
+                <span class="contact-info">Ottery, Cape Town, South Africa</span>
+              </li>
+              <li>
+                <img src="https://img.icons8.com/ios-filled/50/1abc9c/email.png" alt="Email" class="contact-icon">
+                <span class="contact-info">zakariyasalie07@gmail.com</span>
+              </li>
+            </ul>
+            <div class="social-links text-center mt-4">
+              <a href="https://www.linkedin.com/in/zakariya-salie-b86baa25a/" target="_blank" class="social-icon">
+                <img src="https://img.icons8.com/ios-filled/50/1abc9c/linkedin.png" alt="LinkedIn">
+              </a>
+              <a href="https://github.com/zakariyasalie" target="_blank" class="social-icon">
+                <img src="https://img.icons8.com/ios-filled/50/1abc9c/github.png" alt="GitHub">
+              </a>
+            </div>
+          </div>
         </div>
       </div>
     </div>
   </section>
 </template>
 
-
 <script>
 export default {
-  name: 'ContactView',
   data() {
     return {
       form: {
@@ -71,30 +100,25 @@ export default {
   },
   methods: {
     handleSubmit() {
-      if (this.form.name && this.form.email && this.form.message) {
-        // Handle form submission
-        alert('Form submitted successfully!');
-        this.form = { name: '', email: '', message: '' };
-      } else {
-        alert('Please fill in all fields.');
-      }
+      // Handle form submission logic here
+      console.log('Form submitted:', this.form);
     },
     handleDelete() {
-      if (confirm('Are you sure you want to clear the form?')) {
-        this.form = { name: '', email: '', message: '' };
-      }
+      // Clear form fields
+      this.form.name = '';
+      this.form.email = '';
+      this.form.message = '';
     }
   }
 };
 </script>
 
-
 <style scoped>
-.about-me {
+.contact-section {
   position: relative;
   text-align: center;
   padding: 5rem;
-  color: #1abc9c; /* Text color */
+  color: #fff; /* Default text color */
 }
 
 .background-container {
@@ -134,15 +158,15 @@ export default {
   box-shadow: 0 8px 16px rgba(0, 0, 0, 0.3); /* Box shadow on hover */
 }
 
-.about-me-title {
+.contact-title {
   color: #1abc9c; /* Light text color */
 }
 
-.about-me-description {
+.contact-description {
   color: #1abc9c; /* Light text color */
 }
 
-.about-me-content {
+.contact-label {
   margin-bottom: 1rem;
   color: #1abc9c; /* Light text color */
   transition: color 0.3s; /* Smooth color transition */
@@ -213,75 +237,54 @@ export default {
   }
 }
 
-@media (max-width: 768px) {
-  .about-me {
-    padding: 3rem 1rem; /* Adjust padding */
-  }
-
-  .container {
-    padding: 1rem;
-  }
-
-  .content-box {
-    padding: 0.75rem;
-  }
-
-  .about-me-title {
-    font-size: 1.5rem; /* Adjust font size */
-    padding: 0.5rem;
-  }
-
-  .about-me-description {
-    font-size: 0.875rem; /* Adjust font size */
-  }
-
-  .about-me-content {
-    font-size: 0.875rem; /* Adjust font size */
-  }
-
-  .form-control {
-    font-size: 0.875rem; /* Adjust font size */
-  }
-
-  .btn1 {
-    padding: 0.5rem 1rem; /* Adjust padding */
-    font-size: 0.875rem; /* Adjust font size */
-  }
+.contact-details {
+  background-color: rgba(44, 62, 80, 0.9); /* Background similar to navbar */
+  padding: 1rem;
+  border: 2px solid #2c3e50; /* Border style */
 }
 
-@media (max-width: 576px) {
-  .about-me {
-    padding: 2rem 1rem; /* Adjust padding */
-  }
+.contact-details-title {
+  color: #1abc9c; /* Light text color */
+  margin-bottom: 1rem;
+}
 
-  .container {
-    padding: 0.5rem;
-  }
+.contact-details-list {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+}
 
-  .content-box {
-    padding: 0.5rem;
-  }
+.contact-details-list li {
+  display: flex;
+  align-items: center;
+  margin-bottom: 0.75rem;
+}
 
-  .about-me-title {
-    font-size: 1.25rem; /* Adjust font size */
-    padding: 0.25rem;
-  }
+.contact-icon {
+  width: 24px;
+  height: 24px;
+  margin-right: 0.5rem;
+}
 
-  .about-me-description {
-    font-size: 0.75rem; /* Adjust font size */
-  }
+.contact-info {
+  color: #fff; /* White text color */
+}
 
-  .about-me-content {
-    font-size: 0.75rem; /* Adjust font size */
-  }
+.social-links {
+  margin-top: 1rem;
+}
 
-  .form-control {
-    font-size: 0.75rem; /* Adjust font size */
-  }
+.social-icon {
+  margin: 0 0.5rem;
+}
 
-  .btn1 {
-    padding: 0.5rem; /* Adjust padding */
-    font-size: 0.75rem; /* Adjust font size */
-  }
+.social-icon img {
+  width: 32px;
+  height: 32px;
+  transition: transform 0.3s; /* Smooth transition */
+}
+
+.social-icon img:hover {
+  transform: scale(1.1); /* Slightly increase size on hover */
 }
 </style>

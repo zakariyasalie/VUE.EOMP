@@ -4,7 +4,7 @@
       <img src="https://zakariyasalie.github.io/allimages/images/background1.png" alt="Background" loading="lazy" class="background-image">
     </div>
     <div class="container">
-      <h1 class="project-title text-light " data-aos="zoom-in-up">{{ projectsTitle }}</h1>
+      <h1 class="project-title text-light" data-aos="zoom-in-up">{{ projectsTitle }}</h1>
       <div class="card-grid">
         <div class="card" v-for="project in projects" :key="project.title">
           <img :src="project.image" class="card-img-top" :alt="project.title" @error="handleImageError">
@@ -12,12 +12,16 @@
             <h5 class="card-title">{{ project.title }}</h5>
             <p class="card-text">{{ project.description }}</p>
             <a :href="project.url" class="btn btn-primary">Visit URL</a>
+            <a :href="project.github" class="btn btn-secondary github-btn">
+              <i class="fab fa-github"></i> GitHub Repo
+            </a>
           </div>
         </div>
       </div>
     </div>
   </section>
 </template>
+
 
 <script>
 import { mapState, mapActions } from 'vuex';
@@ -128,10 +132,41 @@ export default {
 .card-text:hover {
   color: #1abc9c;
 }
-.btn{
+
+/* Apply the same styling as btn-primary */
+.btn {
   color: #1abc9c;
   background-color: #2c3e50;
+  border: 2px solid #2c3e50;
+  padding: 0.5rem 1rem;
+  text-decoration: none;
+  border-radius: 0.25rem;
+  font-size: 1rem;
+  display: inline-block;
+  transition: background-color 0.3s, color 0.3s, border-color 0.3s;
 }
+
+.btn:hover {
+  background-color: #1abc9c;
+  color: #2c3e50;
+  border-color: #1abc9c;
+}
+
+.github-btn {
+  margin-left: 10px; /* Add some spacing between the buttons */
+  background-color: #2c3e50;
+  color: #1abc9c;
+}
+
+.github-btn:hover {
+  background-color: #1abc9c;
+  color: #2c3e50;
+}
+
+.github-btn i {
+  margin-right: 5px;
+}
+
 @media (max-width: 1200px) {
   .card {
     flex: 1 1 calc(50% - 2rem); /* 2 columns for medium screens */
@@ -152,5 +187,6 @@ export default {
   .card {
     margin-bottom: 1.5rem;
   }
-} 
+}
+
 </style>
