@@ -40,7 +40,7 @@ export default {
   methods: {
     ...mapActions(['getProjects']),
     handleImageError(event) {
-      event.target.src = 'https://via.placeholder.com/150'; // Default image URL
+      event.target.src = 'https://zakariyasalie.github.io/jsonData/data/'; // Default image URL
     }
   }
 }
